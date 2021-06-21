@@ -3,8 +3,8 @@ var tableData = data;
 
 // YOUR CODE HERE!
 var button = d3.select("#filter-btn");
-var form = d3.select("#form-control");
-var t_body = d3.select("tbody");
+var form = d3.select("#form");
+var tbody = d3.select("#tbody");
 
 //create handlers for events
 button.on("click", runEnter);
@@ -47,7 +47,7 @@ function runEnter(){
     tbody.html("");
 //take the data we want and add it to our filtered data table
     filtered_data.forEach((rowData) => {
-
+        var tbody = d3.select("#tbody");
         let row = tbody.append("tr");
         Object.values(rowData).forEach((value) => {
             let cell = row.append("td");
@@ -61,7 +61,7 @@ function runEnter(){
             let cell = row.append("td");
             cell.text(value);
     });
-})
+    })
     filtered_state_data.forEach((rowData) => {
     
         let row = tbody.append("tr");
@@ -69,7 +69,7 @@ function runEnter(){
             let cell = row.append("td");
             cell.text(value);
     });
-})
+    })
     filtered_country_data.forEach((rowData) => {
     
         let row = tbody.append("tr");
@@ -77,7 +77,7 @@ function runEnter(){
             let cell = row.append("td");
             cell.text(value);
     });
-})
+    })
     filtered_shape_data.forEach((rowData) => {
     
         let row = tbody.append("tr");
@@ -85,9 +85,11 @@ function runEnter(){
             let cell = row.append("td");
             cell.text(value);
     });
-})
+    })
 
     //console filtered_data
     console.log("filtered_data");
 };
-fillTable
+
+fillTable(filtered_data);
+

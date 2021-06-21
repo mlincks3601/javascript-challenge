@@ -14,6 +14,7 @@ form.on("submit", runEvent);
 function createTable(filtered_data){
     
     // Select the table id
+    
     var table = d3.select("#ufo-table");
 
     // Select the tbody id
@@ -24,7 +25,7 @@ function createTable(filtered_data){
 
     // add the selected data to the filtered data table
     filtered_data.forEach(function(dataObject){
-        trow = tbody.append("tr");
+        var trow = tbody.append("tr");
         trow.append("td").text(dataObject.datetime);
         trow.append("td").text(dataObject.city);
         trow.append("td").text(dataObject.state);
@@ -49,9 +50,11 @@ function runEvent(){
     var input_data = inputElement.property("value");
 
     // Filter the data.js by the input value
-    var filtered_data = tableData.filter(sighting => sighting.datetime === input_data);
+    var filtered_data = tableData.filter(dataObject => dataObject.datetime === input_data);
 
     // Call the createTable function with the 
     // filteredData as the parameter
     createTable(filtered_data);
 };
+
+createTable(tableData);
