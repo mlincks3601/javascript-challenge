@@ -13,7 +13,7 @@ form.on("submit", runEnter);
 clear_button.on("click", fillTable);
 function fillTable() {
     tableData.forEach((rowData) => {
-        let row = t_body.append("tr");
+        let row = tbody.append("tr");
         Object.values(rowData).forEach((value) => {
             let cell = row.append("td");
             cell.text(value);
@@ -21,10 +21,9 @@ function fillTable() {
     })
 };
 
-//complete the handlers for the events
 function runEnter(){
     d3.event.preventDefault();
-    //select the data from the datetime entry
+    //select the data from all the needed entries
     var input_data = d3.select("#datetime");
     var input_city = d3.select("#city");
     var input_state = d3.select("#state");
@@ -46,49 +45,50 @@ function runEnter(){
 
 
 //clear the table for the next filter of choice by user
-    t_body.html("");
-//console.log the filtered_data and put it into the table
+    tbody.html("");
+//take the data we want and add it to our filtered data table
     filtered_data.forEach((rowData) => {
 
-        let row = t_body.append("tr");
+        let row = tbody.append("tr");
         Object.values(rowData).forEach((value) => {
             let cell = row.append("td");
             cell.text(value);
         });
     })
-filtered_city_data.forEach((rowData) => {
+    filtered_city_data.forEach((rowData) => {
 
-    let row = t_body.append("tr");
-    Object.values(rowData).forEach((value) => {
-        let cell = row.append("td");
-        cell.text(value);
+        let row = tbody.append("tr");
+        Object.values(rowData).forEach((value) => {
+            let cell = row.append("td");
+            cell.text(value);
     });
 })
-filtered_state_data.forEach((rowData) => {
+    filtered_state_data.forEach((rowData) => {
     
-    let row = t_body.append("tr");
-    Object.values(rowData).forEach((value) => {
-        let cell = row.append("td");
-        cell.text(value);
+        let row = tbody.append("tr");
+        Object.values(rowData).forEach((value) => {
+            let cell = row.append("td");
+            cell.text(value);
     });
 })
-filtered_country_data.forEach((rowData) => {
+    filtered_country_data.forEach((rowData) => {
     
-    let row = t_body.append("tr");
-    Object.values(rowData).forEach((value) => {
-        let cell = row.append("td");
-        cell.text(value);
+        let row = tbody.append("tr");
+        Object.values(rowData).forEach((value) => {
+            let cell = row.append("td");
+            cell.text(value);
     });
 })
-filtered_shape_data.forEach((rowData) => {
+    filtered_shape_data.forEach((rowData) => {
     
-    let row = t_body.append("tr");
-    Object.values(rowData).forEach((value) => {
-        let cell = row.append("td");
-        cell.text(value);
+        let row = tbody.append("tr");
+        Object.values(rowData).forEach((value) => {
+            let cell = row.append("td");
+            cell.text(value);
     });
 })
 
     //console filtered_data
+    console.log("filtered_data");
 };
 fillTable

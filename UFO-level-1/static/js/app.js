@@ -9,40 +9,38 @@ var button = d3.select("#filter-btn");
 // Initialize the instance for the form
 var form = d3.select("#form");
 
-// Create Event handlers
+// Create event handlers for the button clicks
 button.on("click", runEvent);
 form.on("submit", runEvent);
 
-// Function to create and append data to the table
+// Function to create and add the data to our table
 function createTable(filtered_data){
     
-    // Select the table element by id
+    // Select the table id
     var table = d3.select("#ufo-table");
 
-    // Select the tbody element by id 
-    var t_body = table.select("t_body");
-    var t_row;
+    // Select the tbody id
+    var tbody = table.select("tbody");
+    var trow;
 
-    // Sets the table to it's default blank setting for population
-    t_body.html("");
+    // set the table to it's default blank setting for the population
+    tbody.html("");
 
-    // Loop through each object and append the data to the table
+    // add the selected data to the filtered data table
     filtered_data.forEach(function(dataObject){
-        // Create new row for each object
-        t_row = tbody.append("tr");
-        t_row.append("td").text(dataObject.datetime);
-        t_row.append("td").text(dataObject.city);
-        t_row.append("td").text(dataObject.state);
-        t_row.append("td").text(dataObject.country);
-        t_row.append("td").text(dataObject.shape);
-        t_row.append("td").text(dataObject.durationMinutes);
-        t_row.append("td").text(dataObject.comments);
+        trow = tbody.append("tr");
+        trow.append("td").text(dataObject.datetime);
+        trow.append("td").text(dataObject.city);
+        trow.append("td").text(dataObject.state);
+        trow.append("td").text(dataObject.country);
+        trow.append("td").text(dataObject.shape);
+        trow.append("td").text(dataObject.durationMinutes);
+        trow.append("td").text(dataObject.comments);
 
     });
 
 };
 
-// Event Handler Function
 function runEvent(){
 
     // Prevent Page from Refreshing
