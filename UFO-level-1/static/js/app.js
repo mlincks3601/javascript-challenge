@@ -2,11 +2,8 @@
 var tableData = data;
 
 // YOUR CODE HERE!
-var tableData = data;
 
 var button = d3.select("#filter-btn");
-
-// Initialize the instance for the form
 var form = d3.select("#form");
 
 // Create event handlers for the button clicks
@@ -20,8 +17,7 @@ function createTable(filtered_data){
     var table = d3.select("#ufo-table");
 
     // Select the tbody id
-    var tbody = table.select("tbody");
-    var trow;
+    var tbody = table.select("#tbody");
 
     // set the table to it's default blank setting for the population
     tbody.html("");

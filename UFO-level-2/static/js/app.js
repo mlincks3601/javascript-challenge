@@ -3,14 +3,13 @@ var tableData = data;
 
 // YOUR CODE HERE!
 var button = d3.select("#filter-btn");
-var clear_button = d3.select("#clear-btn");
 var form = d3.select("#form-control");
 var t_body = d3.select("tbody");
 
 //create handlers for events
 button.on("click", runEnter);
 form.on("submit", runEnter);
-clear_button.on("click", fillTable);
+button.on("click", fillTable);
 function fillTable() {
     tableData.forEach((rowData) => {
         let row = tbody.append("tr");
