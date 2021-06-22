@@ -91,5 +91,5 @@ function runEnter(){
     console.log("filtered_data");
 };
 
-runEnter();
+fillTable();
 
